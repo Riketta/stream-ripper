@@ -13,6 +13,7 @@ pub struct Config {
     pub log_level: LevelFilter,
     pub logs_folder: String,
     pub stream_urls: Vec<String>,
+    pub streamlink_cli: String,
 }
 
 impl Config {
@@ -57,6 +58,7 @@ impl Default for Config {
             log_level: LevelFilter::Info,
             logs_folder: "logs".to_string(),
             stream_urls: vec![],
+            streamlink_cli: r##"streamlink --force --logfile "logs\{source}_{timestamp}.log" --output "streams\{author}_{time:%Y%m%d-%H%M%S}.mp4" --progress no --twitch-disable-ads --default-stream "1080p, 720p, best" --url {url}"##.to_string(),
         }
     }
 }
