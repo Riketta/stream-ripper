@@ -28,7 +28,7 @@ impl MetadataVariables {
 
     /// Augment external command line string with metadata variables.
     pub fn augment_cli(cli: &str, stream_url: &str) -> String {
-        let timestamp = Local::now().with_minute(0).unwrap().format("%Y%m%d-%H%M");
+        let timestamp = Local::now().with_minute(0).unwrap().format("%Y%m%d");
         let timestamp = format!("{timestamp}");
         let templates = MetadataVariables::templates(stream_url, &timestamp);
 
